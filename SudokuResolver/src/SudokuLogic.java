@@ -17,18 +17,16 @@ public class SudokuLogic
 				}
 			}
 		}
-		// Regarde la ligne
+		//Regarle la ligne et la colonne
 		for (int i = 0; i < 9; i++)
 		{
+			//Regarde la ligne
 			if (tab[i][startColumm] == number)
 			{
 				return false;
 			}
-		}
-		// Regarde la colonne
-		for (int j = 0; j < 9; j++)
-		{
-			if (tab[startRow][j] == number)
+			//Regarde la colonne
+			if (tab[startRow][i] == number)
 			{
 				return false;
 			}
