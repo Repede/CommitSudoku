@@ -13,7 +13,7 @@ public class FileUtility
 	 * @param pathFile
 	 * @return BufferedReader
 	 */
-	public BufferedReader retrieveFile(String pathFile)
+	public static BufferedReader retrieveFile(String pathFile)
 	{
 		BufferedReader reader = null;
 		try
