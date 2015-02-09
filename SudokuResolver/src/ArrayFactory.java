@@ -17,7 +17,6 @@ public class ArrayFactory
 				{
 					sudokuArray[i][j] = readChar.charAt(i);
 				}
-				System.out.println(readChar);
 				j++;
 			}
 		}
