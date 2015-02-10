@@ -15,7 +15,7 @@ public class ArrayFactory
 			{
 				for(int i = 0 ; i < 9 ; ++i)
 				{
-					sudokuArray[i][j] = readChar.charAt(i);
+					sudokuArray[i][j] = Character.getNumericValue(readChar.charAt(i));
 				}
 				j++;
 			}

@@ -9,7 +9,7 @@ public class SudokuLogic
 		int initPosY = startColumm - startColumm % 3;
 		for (int i = initPosX; i < initPosX + 3; i++)
 		{
-			for (int j = initPosY; i < initPosY + 3; j++)
+			for (int j = initPosY; j < initPosY + 3; j++)
 			{
 				if (tab[i][j] == number)
 				{
