@@ -1,4 +1,5 @@
 import java.awt.Point;
+import java.util.Arrays;
 
 public class Sudoku
 {
@@ -22,12 +23,14 @@ public class Sudoku
 		this.grid = fact.getSudokuArrayFromFile("sudoku1.sud");
 		
 		this.searchNumber(new Point(0,0));
+		
+		System.out.println(Arrays.deepToString(grid));
 	}
 
 	private boolean searchNumber(Point point){
 		// try each number until it's valid
 		for(int number=1; number<10; number++){
-			if(this.sudokuLogic.isValid(this.grid, point.x, point.y, number)){
+			if(this.sudokuLogic.isValid(this.grid, point.y, point.x, number)){
 				
 				this.grid[point.x][point.y] = number;
 				Point nextPoint = this.retrieveNextAvailable(point);
@@ -50,11 +53,15 @@ public class Sudoku
 		boolean searching = true;
 		
 		while(searching){
-			if(point.x < 9){
-				++point.x;
-			}
-			else if(point.x == 9){
+			if(point.y < 8){
 				++point.y;
+			}
+			else if(point.y == 8){
+				++point.x;
+				point.y = 0;
+			}
+			
+			if(point.x > 8){
 				point.x = 0;
 			}
 			
