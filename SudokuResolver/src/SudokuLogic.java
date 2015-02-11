@@ -34,6 +34,46 @@ public class SudokuLogic
 
 		return true;
 	}
+	public boolean isValid(int[][] tab, int startRow, int startColumm)
+	{
+		// Regarde le carré
+		int initPosX = startRow - startRow % 3;
+		int initPosY = startColumm - startColumm % 3;
+		int number=tab[startRow][startColumm];
+		for (int i = initPosX; i < initPosX + 3; i++)
+		{
+			for (int j = initPosY; j < initPosY + 3; j++)
+			{
+				if(i==startRow&&j==startColumm)
+					continue;
+				if (tab[i][j] == number)
+				{
+					return false;
+				}
+			}
+		}
+		//Regarle la ligne et la colonne
+		for (int i = 0; i < 9; i++)
+		{
+			if(i==startRow)
+				continue;
+			if (tab[i][startColumm] == number)
+			{
+				return false;
+			}
+		}
+		for (int j = 0; j < 9; j++)
+		{
+			//Regarde la colonne
+			if(j==startColumm)
+				continue;
+			if (tab[startRow][j] == number)
+			{
+				return false;
+			}
+		}
+		return true;
+	}
 
 	public boolean isDoable(int[][] sudoku)
 	{
@@ -50,6 +90,14 @@ public class SudokuLogic
 				}
 			}
 		}
+		return true;
+	}
+	public boolean isSudokuResolvable(int[][] sudoku)
+	{
+		for (int i = 0; i < sudoku.length; i++) 
+			for (int j = 0; j < sudoku.length; j++) 
+				if(sudoku[i][j]!=0&&!this.isValid(sudoku, i, j))
+					return false;
 		return true;
 	}
 
